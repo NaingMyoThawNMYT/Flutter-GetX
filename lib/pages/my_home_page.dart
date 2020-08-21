@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_get_x/controllers/counter_controller.dart';
+import 'package:get/get.dart';
 
 class MyHomePage extends StatelessWidget {
+  final counterController = Get.put(CounterController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,20 +23,16 @@ class MyHomePage extends StatelessWidget {
 
   Widget get countDisplay => Align(
         alignment: Alignment.center,
-        child: Text('Count: '), // TODO: display count
+        child: Obx(() => Text('Count: ' + counterController.count.string)),
       );
 
   Widget get increaseButton => RaisedButton(
-        onPressed: () {
-          // TODO: increase count
-        },
+        onPressed: counterController.increment,
         child: Text('Increase'),
       );
 
   Widget get decreaseButton => RaisedButton(
-        onPressed: () {
-          // TODO: decrease count
-        },
+        onPressed: counterController.decrement,
         child: Text('Decrease'),
       );
 }
