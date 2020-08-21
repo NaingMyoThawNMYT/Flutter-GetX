@@ -2,4 +2,6 @@
 ----------
 1. UI is updated.
 2. Remove unused packages.
+3. GetX state management package is added.
+4. Counter function is implemented by using GetX state management.
 ====================================================================================================
